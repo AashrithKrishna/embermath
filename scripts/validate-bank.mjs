@@ -15,7 +15,7 @@ const JSON_OUT = args.includes("--json");
 const NO_DB = args.includes("--no-db");
 const VERBOSE = args.includes("--verbose");
 
-export const SEED_FILES = ["paper3_seed_questions.json", "original_seed_questions.json", "wave1_seed_questions.json", "wave2_aa_seed_questions.json", "wave2_ai_seed_questions.json", "wave3_aa_seed_questions.json", "wave3_ai_seed_questions.json", "wave4_aa_seed_questions.json", "wave4_ai_seed_questions.json", "wave5_aa_seed_questions.json", "wave5_ai_seed_questions.json"];
+export const SEED_FILES = ["paper3_seed_questions.json", "original_seed_questions.json", "wave1_seed_questions.json", "wave2_aa_seed_questions.json", "wave2_ai_seed_questions.json", "wave3_aa_seed_questions.json", "wave3_ai_seed_questions.json", "wave4_aa_seed_questions.json", "wave4_ai_seed_questions.json", "wave5_aa_seed_questions.json", "wave5_ai_seed_questions.json", "wave6_aa_seed_questions.json", "wave6_ai_seed_questions.json"];
 
 const sources = [];
 for (const file of SEED_FILES) {

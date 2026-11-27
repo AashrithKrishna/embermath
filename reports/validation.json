@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T08:41:16.950Z",
+  "generatedAt": "2026-11-27T09:52:20.595Z",
   "totals": {
     "ERROR": 0,
     "WARN": 0
@@ -177,6 +177,40 @@
     },
     "wave5_ai_seed_questions.json": {
       "records": 120,
+      "counts": {
+        "UNBALANCED_DOLLAR": 0,
+        "LEGACY_DELIMITER": 0,
+        "UNBALANCED_BRACES": 0,
+        "UNMATCHED_ENV": 0,
+        "KATEX_PARSE": 0,
+        "BARE_LATEX": 0,
+        "HTML_ENTITY": 0,
+        "HTML_TAG": 0,
+        "EMPTY_STATEMENT": 0,
+        "EMPTY_MARKSCHEME": 0,
+        "FIGURE_UNFLAGGED": 0,
+        "FIGURE_MISSING": 0
+      }
+    },
+    "wave6_aa_seed_questions.json": {
+      "records": 0,
+      "counts": {
+        "UNBALANCED_DOLLAR": 0,
+        "LEGACY_DELIMITER": 0,
+        "UNBALANCED_BRACES": 0,
+        "UNMATCHED_ENV": 0,
+        "KATEX_PARSE": 0,
+        "BARE_LATEX": 0,
+        "HTML_ENTITY": 0,
+        "HTML_TAG": 0,
+        "EMPTY_STATEMENT": 0,
+        "EMPTY_MARKSCHEME": 0,
+        "FIGURE_UNFLAGGED": 0,
+        "FIGURE_MISSING": 0
+      }
+    },
+    "wave6_ai_seed_questions.json": {
+      "records": 462,
       "counts": {
         "UNBALANCED_DOLLAR": 0,
         "LEGACY_DELIMITER": 0,

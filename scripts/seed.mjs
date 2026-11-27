@@ -21,6 +21,8 @@ const SOURCES = [
   { file: "wave4_ai_seed_questions.json", course: null },
   { file: "wave5_aa_seed_questions.json", course: null },
   { file: "wave5_ai_seed_questions.json", course: null },
+  { file: "wave6_aa_seed_questions.json", course: null },
+  { file: "wave6_ai_seed_questions.json", course: null },
 ]
 
 const jsonList = (value) => {
