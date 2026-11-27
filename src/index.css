@@ -1,0 +1,319 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Ember, Teal & Gold: design tokens.
+ * Derived with the golden angle (360°/φ² ≈ 137.5°) in OKLCH: ember sits at
+ * hue 43°, teal at 43° + 137.5° ≈ 180°, gold at 43° + 3 × 137.5° ≈ 96°.
+ * Ember and teal share lightness and chroma so neither overpowers the other;
+ * gold is a step lighter, as a yellow has to be. Neutrals (page → surface →
+ * raised) carry a faint tint of the teal hue.
+ * Roles: ember = actions (primary buttons, active/selected states, selection).
+ * Teal = structure and information (focus ring, part labels, method marks,
+ * the dock's running indicator). Gold = results, used sparingly (score and
+ * grade readouts, the score line on charts, starred questions, reasoning
+ * marks) and the "medium" step of the semantic scale. Semantic colors (green
+ * / gold / red) only encode difficulty or marking outcome. No decorative
+ * gradients.
+ */
+@theme {
+  --color-page: #081110;
+  --color-surface: #0f1b19;
+  --color-raised: #172422;
+  --color-raised-2: #1f2e2c;
+  --color-line: rgba(168, 186, 183, 0.14);
+  --color-line-strong: rgba(168, 186, 183, 0.28);
+  --color-hair: rgba(255, 255, 255, 0.06);
+  --color-ink: #e6efee;
+  --color-ink-muted: #a8bab7;
+  --color-ink-faint: #7e918e;
+  /* The one accent. */
+  --color-accent: #f06a2a;
+  --color-accent-bright: #ff7d3f;
+  --color-accent-wash: rgba(240, 106, 42, 0.12);
+  --color-accent-line: rgba(240, 106, 42, 0.34);
+  --color-accent-ink: #081110;
+  /* Ember + one golden angle: the structural secondary. */
+  --color-teal: #01b19c;
+  --color-teal-bright: #23c8b2;
+  --color-teal-wash: rgba(1, 177, 156, 0.12);
+  --color-teal-line: rgba(1, 177, 156, 0.34);
+  /* Ember + three golden angles: results and the middle of the scale. */
+  --color-gold: #d5b629;
+  --color-gold-bright: #e6c93f;
+  --color-gold-wash: rgba(213, 182, 41, 0.12);
+  --color-gold-line: rgba(213, 182, 41, 0.34);
+  --color-easy: #5ebe55;
+  --color-medium: #d5b629;
+  --color-hard: #ef4444;
+  /* legacy aliases used by older primitives */
+  --color-verdigris: #5ebe55;
+  --color-verdigris-bright: #34d399;
+  --color-danger: #ef4444;
+  --color-warning: #d5b629;
+
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@theme inline {
+  --font-sans: "Geist Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 12px;
+  --radius-3xl: 12px;
+}
+
+:root {
+  --radius: 8px;
+  --background: #081110;
+  --foreground: #e6efee;
+  --card: #0f1b19;
+  --card-foreground: #e6efee;
+  --popover: #0f1b19;
+  --popover-foreground: #e6efee;
+  --primary: #f06a2a;
+  --primary-foreground: #081110;
+  --secondary: #172422;
+  --secondary-foreground: #e6efee;
+  --muted: #172422;
+  --muted-foreground: #a8bab7;
+  --accent: #f06a2a;
+  --accent-foreground: #081110;
+  --destructive: #ef4444;
+  --border: rgba(168, 186, 183, 0.14);
+  --input: rgba(168, 186, 183, 0.18);
+  --ring: #f06a2a;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: #2b3442 transparent;
+  }
+  html {
+    color-scheme: dark;
+    scroll-padding-bottom: 72px;
+    @apply font-sans;
+    background: var(--color-page);
+  }
+  html,
+  body {
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-page text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  ::selection {
+    background: rgba(240, 106, 42, 0.35);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Surfaces: hairline border + 1px top-edge inner highlight, no soft shadows. */
+@utility surface {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+@utility card {
+  background-color: var(--color-raised);
+  border: 1px solid var(--color-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "zero" 0;
+}
+
+@utility animate-enter {
+  animation: enter 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-slide-next {
+  animation: slide-next 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes slide-next {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-slide-prev {
+  animation: slide-prev 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes slide-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility skeleton {
+  background: linear-gradient(90deg, #111e1c 0%, #1a2826 50%, #111e1c 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Mathematics */
+.math-prose {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+.math-prose .katex {
+  font-size: 1.08em;
+}
+.math-prose .katex-display {
+  margin: 0.6em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2em 0;
+}
+.math-prose .math-part {
+  display: block;
+  height: 0.6em;
+}
+.math-prose .math-part-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-teal);
+  margin-right: 0.5em;
+}
+.math-prose .mark-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin: 0 2px;
+  white-space: nowrap;
+  /* Answer marks: ember. Method marks: teal. Reasoning / AG: gold. */
+  border: 1px solid var(--color-accent-line);
+  color: var(--color-accent);
+  background: var(--color-accent-wash);
+}
+.math-prose .mark-tag[data-kind="M"] {
+  border-color: var(--color-teal-line);
+  color: var(--color-teal);
+  background: var(--color-teal-wash);
+}
+.math-prose .mark-tag[data-kind="R"],
+.math-prose .mark-tag[data-kind="AG"] {
+  border-color: var(--color-gold-line);
+  color: var(--color-gold);
+  background: var(--color-gold-wash);
+}
+.math-prose .math-fallback {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--color-ink);
+}
+
+/* Diagrams: black-ink figures sit in a light "well" so they stay legible. */
+.figure-well {
+  background: #f1f3f6;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: inset 0 0 0 1px rgba(13, 17, 23, 0.06);
+}
+.figure-well img {
+  display: block;
+  margin: 0 auto;
+  max-height: 340px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.figure-ink img {
+  filter: invert(0.92) hue-rotate(180deg) contrast(0.95);
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-area {
+    color: #000;
+  }
+  .print-area .math-prose {
+    color: #000;
+  }
+  .print-area .figure-well {
+    background: none;
+    border: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

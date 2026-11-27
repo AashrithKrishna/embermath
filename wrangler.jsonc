@@ -1,0 +1,11 @@
+{
+  // EmberMath is a static site on Cloudflare Workers static assets.
+  // Deploy with `npm run deploy` (builds with VITE_STATIC=1, then uploads dist/).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "embermath",
+  "compatibility_date": "2026-11-10",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

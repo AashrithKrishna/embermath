@@ -1,0 +1,1 @@
+ALTER TABLE `questions` ADD `course` varchar(16) DEFAULT 'AA HL' NOT NULL;

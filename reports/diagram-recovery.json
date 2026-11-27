@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-12T12:14:15.279Z",
+  "courses": {
+    "AA HL": {
+      "topicPages": 26,
+      "apiQuestions": 489,
+      "seedRecords": 479,
+      "matched": 478,
+      "methods": {
+        "source_id": 478
+      },
+      "withImages": 74,
+      "withMarkschemeImages": 51,
+      "statementsReflattened": 0,
+      "markschemesReflattened": 0,
+      "tablesConverted": 0,
+      "tablesPatchedInPlace": 0,
+      "figureSatisfiedByInlineData": 13,
+      "figureReferences": 60,
+      "diagramMissing": 2,
+      "unmatched": [
+        "In the expansion $ax^3(4 + ax)^5, a < 0$, the coefficient of $x^6$ is 3840. Find the value of $a$."
+      ],
+      "matchRate": "99.8%"
+    },
+    "AI HL": {
+      "topicPages": 26,
+      "apiQuestions": 479,
+      "seedRecords": 479,
+      "matched": 479,
+      "methods": {
+        "source_id": 479
+      },
+      "withImages": 171,
+      "withMarkschemeImages": 100,
+      "statementsReflattened": 0,
+      "markschemesReflattened": 0,
+      "tablesConverted": 0,
+      "tablesPatchedInPlace": 0,
+      "figureSatisfiedByInlineData": 39,
+      "figureReferences": 132,
+      "diagramMissing": 4,
+      "unmatched": [],
+      "matchRate": "100.0%"
+    }
+  }
+}

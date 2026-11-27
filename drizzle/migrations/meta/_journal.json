@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1794376846247,
+      "tag": "0000_init_questions",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1794385928678,
+      "tag": "0001_add_course",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1794394569816,
+      "tag": "0002_add_markscheme",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1794400000000,
+      "tag": "0003_add_images_source",
+      "breakpoints": true
+    }
+  ]
+}

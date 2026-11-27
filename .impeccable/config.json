@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "scraper/cache/edunade/ai/hub.html"
+        ],
+        "createdAt": "2026-11-25T09:07:40.239Z",
+        "reason": "Claude decided: scraped third-party page cached as scraper input, not app UI"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          "scraper/cache/edunade/ai/hub.html"
+        ],
+        "createdAt": "2026-11-25T09:07:40.263Z",
+        "reason": "Claude decided: scraped third-party page cached as scraper input, not app UI"
+      }
+    ]
+  }
+}

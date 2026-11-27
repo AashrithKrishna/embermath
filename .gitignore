@@ -1,0 +1,22 @@
+node_modules
+dist
+dist-ssr
+coverage
+*.local
+.DS_Store
+.vite
+.env
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
+reports/screens
+reports/logs
+*.qoder.site
+scraper/cache
+
+# third-party content kept locally only (licences forbid republishing)
+private-thirdparty/
+private-pastpapers/

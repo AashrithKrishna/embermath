@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "mhqb-ui", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:ui"], "port": 5173 },
+    { "name": "mhqb-dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 5173 }
+  ]
+}
