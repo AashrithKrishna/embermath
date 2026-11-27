@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T09:52:20.595Z",
+  "generatedAt": "2026-11-27T10:13:12.407Z",
   "totals": {
     "ERROR": 0,
     "WARN": 0
@@ -193,7 +193,7 @@
       }
     },
     "wave6_aa_seed_questions.json": {
-      "records": 0,
+      "records": 492,
       "counts": {
         "UNBALANCED_DOLLAR": 0,
         "LEGACY_DELIMITER": 0,
